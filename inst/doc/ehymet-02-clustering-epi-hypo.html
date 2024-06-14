@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Clustering through the epigraph and hypograph indices</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Clustering through the epigraph and
+hypograph indices</h1>
+
+
+<div id="TOC">
+<ul>
+<li><a href="#the-ehyclus-function" id="toc-the-ehyclus-function">The
+EHyClus function</a>
+<ul>
+<li><a href="#parameters" id="toc-parameters">Parameters</a></li>
+<li><a href="#example-of-usage-and-validation" id="toc-example-of-usage-and-validation">Example of usage and
+validation</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(ehymet)</span></code></pre></div>
+<div id="the-ehyclus-function" class="section level1">
+<h1>The EHyClus function</h1>
+<p>One of the main utilities of the epigraph and the hypograph index is
+to be able to measure ``extremality’’ of a curve with respect to a bunch
+of curves and to provide and ordination of the curves from top to bottom
+or vice-versa.</p>
+<p>EHyClus is a methodology for clustering functional data which is
+based in four steps:</p>
+<ol style="list-style-type: decimal">
+<li>Smooth the functional dataset.</li>
+<li>Apply the indices to data, first and second derivatives.</li>
+<li>Apply classical multivariate clustering technique.</li>
+<li>Obtain a clustering partition in <span class="math inline">\(k\)</span> groups (<span class="math inline">\(k\)</span> fixed in advanced).</li>
+</ol>
+<p>In <code>ehymet</code>, the function that allows us to perform this
+process is <code>EHyClus</code>.</p>
+<p>EHyClus function is designed for clustering functional datasets. The
+input data can be a one-dimensional dataset, <span class="math inline">\(n \times p\)</span> matrix, or a multidimensional
+one, <span class="math inline">\(n \times p \times q\)</span> array. The
+function transforms the initial dataset by first smoothing the data and
+then applying different indices analyzed on the first vignette such as
+the epigraph, hypograph, and their modified versions, and then applies
+various clustering algorithms to this dataset. Indices for one or
+multiple dimension are applied depending on the size of the input
+data.</p>
+<p>It supports multiple clustering methods: <strong>hierarchical
+clustering</strong> (“hierarch”), <strong>k-means</strong> (“kmeans”),
+<strong>kernel k-means</strong> (“kkmeans”), and <strong>spectral
+clustering</strong> (“spc”). Also, it allows customization of
+hierarchical clustering methods, distance metrics, and kernels using
+parameters like <code>l_dist_hierarch</code>.</p>
+<p>For smoothing, it uses B-splines with a specified or automatically
+selected number of basis functions.</p>
+<p>To check the quality of the results, if true labels are provided, the
+function can validate the clustering results and compute performance
+metrics such as purity, F-measure, and Rand Index (RI). Also, it records
+the time taken for each clustering method, in case you want to measure
+it in case of wanting to know the trade-off between results and
+execution time</p>
+<div id="parameters" class="section level2">
+<h2>Parameters</h2>
+<p>All the parameters and its functionality can be found on the function
+documentation, but arguably the most important ones are:</p>
+<ul>
+<li><strong>curves</strong>: The dataset containing the curves to be
+clustered.</li>
+<li><strong>vars_combinations</strong>: List that determines the
+combination of variables to use. If not provided, generic combinations
+of variables will be used.</li>
+<li><strong>clustering_methods</strong>: A vector specifying which
+clustering methods to apply.</li>
+<li><strong>n_clusters</strong> Number of clusters to generate.</li>
+<li><strong>k</strong>: Number of basis functions for B-splines. Not to
+be confused with <strong>n_clusters</strong>.</li>
+<li><strong>bs</strong>: Type of penalized smoothing basis to use.</li>
+<li><strong>true_labels</strong>: If provided, evaluation metrics are
+provided along the result.</li>
+</ul>
+</div>
+<div id="example-of-usage-and-validation" class="section level2">
+<h2>Example of usage and validation</h2>
+<p>In this subsection, we are going to display how to obtain the results
+of the <code>EHyClus</code> function and validate them (if
+<code>true_labels</code> are present). First, we are going to generate
+multidimensional data using <code>sim_model_ex2</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>curves <span class="ot">&lt;-</span> <span class="fu">sim_model_ex2</span>(<span class="at">n =</span> n, <span class="at">i_sim =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p>And, as we are generating <span class="math inline">\(n = 50\)</span>
+curves per group and there are two groups, the true labels are:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>true_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, n), <span class="fu">rep</span>(<span class="dv">2</span>, n))</span></code></pre></div>
+<p>We can run the algorithm with or without the true labels. For the
+combinations of variables, we will use “d2dtaMEI” with “d2dtaMHI”.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">EHyClus</span>(curves, <span class="at">vars_combinations =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;d2dtaMEI&quot;</span>, <span class="st">&quot;d2dtaMHI&quot;</span>)))</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>res_with_labels <span class="ot">&lt;-</span> <span class="fu">EHyClus</span>(curves,</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="at">vars_combinations =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;d2dtaMEI&quot;</span>, <span class="st">&quot;d2dtaMHI&quot;</span>)),</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="at">true_labels =</span> true_labels</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>)</span></code></pre></div>
+<p>For the result without labels, it can be seen that we only have the
+generated clusters:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">names</span>(res)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;cluster&quot;</span></span></code></pre></div>
+<p>Whereas the one we generated with labels has both
+<code>cluster</code> and <code>metrics</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">names</span>(res_with_labels)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;cluster&quot; &quot;metrics&quot;</span></span></code></pre></div>
+<p>Let’s explore both components of the latter. We’re going to start
+with <code>cluster</code>.</p>
+<pre><code>#&gt;                                               levelName
+#&gt; 1  cluster                                             
+#&gt; 2   ¦--hierarch                                        
+#&gt; 3   ¦   ¦--hierarch_single_euclidean_d2dtaMEId2dtaMHI  
+#&gt; 4   ¦   ¦--hierarch_complete_euclidean_d2dtaMEId2dtaMHI
+#&gt; 5   ¦   ¦--hierarch_average_euclidean_d2dtaMEId2dtaMHI 
+#&gt; 6   ¦   ¦--hierarch_centroid_euclidean_d2dtaMEId2dtaMHI
+#&gt; 7   ¦   ¦--hierarch_ward.D2_euclidean_d2dtaMEId2dtaMHI 
+#&gt; 8   ¦   ¦--hierarch_single_manhattan_d2dtaMEId2dtaMHI  
+#&gt; 9   ¦   ¦--hierarch_complete_manhattan_d2dtaMEId2dtaMHI
+#&gt; 10  ¦   ¦--hierarch_average_manhattan_d2dtaMEId2dtaMHI 
+#&gt; 11  ¦   ¦--hierarch_centroid_manhattan_d2dtaMEId2dtaMHI
+#&gt; 12  ¦   °--hierarch_ward.D2_manhattan_d2dtaMEId2dtaMHI 
+#&gt; 13  ¦--kmeans                                          
+#&gt; 14  ¦   ¦--kmeans_euclidean_d2dtaMEId2dtaMHI           
+#&gt; 15  ¦   °--kmeans_mahalanobis_d2dtaMEId2dtaMHI         
+#&gt; 16  ¦--kkmeans                                         
+#&gt; 17  ¦   ¦--kkmeans_rbfdot_d2dtaMEId2dtaMHI             
+#&gt; 18  ¦   °--kkmeans_polydot_d2dtaMEId2dtaMHI            
+#&gt; 19  °--spc                                             
+#&gt; 20      ¦--spc_rbfdot_d2dtaMEId2dtaMHI                 
+#&gt; 21      °--spc_polydot_d2dtaMEId2dtaMHI</code></pre>
+<p>In the suffix of the names we can see the combination of variables
+used, that is “d2dtaMEI” with “d2dtaMHI”. We can also see the different
+parameters used. For example, for the kmeans it is easy to see that it
+has been performed with both the Euclidean and the Mahalanobis
+distances.</p>
+<p>Looking in particular at some of the elements, we see that it
+contains the following:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">str</span>(res_with_labels<span class="sc">$</span>cluster<span class="sc">$</span>hierarch<span class="sc">$</span>hierarch_ward.D2_euclidean_d2dtaMEId2dtaMHI)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co">#&gt; List of 3</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt;  $ cluster: int [1:100] 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co">#&gt;  $ valid  : &#39;table&#39; num [1:3(1d)] 0.93 0.868 0.869</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt;   ..- attr(*, &quot;dimnames&quot;)=List of 1</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#&gt;   .. ..$ : chr [1:3] &quot;Purity&quot; &quot;Fmeasure&quot; &quot;RI&quot;</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="co">#&gt;  $ time   : num 0.000973</span></span></code></pre></div>
+<p>On the one hand we have <code>cluster</code> which is the vector that
+assigns each of the curves to a cluster. Then we have
+<code>valid</code>, which is the validation data. And finally
+<code>time</code>, which is the time that this particular method has
+taken to be executed. Let’s take a look at <code>valid</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">head</span>(res_with_labels<span class="sc">$</span>cluster<span class="sc">$</span>hierarch<span class="sc">$</span>hierarch_ward.D2_euclidean_d2dtaMEId2dtaMHI<span class="sc">$</span>valid)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co">#&gt;   Purity Fmeasure       RI </span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="co">#&gt;   0.9300   0.8678   0.8685</span></span></code></pre></div>
+<p>It gives us 3 metrics: Purity, F-measure and the Rand Index (RI).
+However, we can obtain this information in another way. Going back to
+the second element of <code>res_with_labels</code>: <code>metrics</code>
+give us a summary of all metrics:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">head</span>(res_with_labels<span class="sc">$</span>metrics, <span class="dv">3</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co">#&gt;                                             Purity Fmeasure     RI         Time</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co">#&gt; kmeans_euclidean_d2dtaMEId2dtaMHI             1.00   1.0000 1.0000 0.0084872246</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co">#&gt; kmeans_mahalanobis_d2dtaMEId2dtaMHI           1.00   1.0000 1.0000 0.0089440346</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co">#&gt; hierarch_ward.D2_euclidean_d2dtaMEId2dtaMHI   0.93   0.8678 0.8685 0.0009729862</span></span></code></pre></div>
+<p>It gives us the Purity, F-measure, RI and Time for every clustering
+method with every combination of parameters that has been executed. We
+can search for “hierarch_single_euclidean_d2dtaMEId2dtaMHI” and see that
+it yields the same results as seen previously:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>res_with_labels<span class="sc">$</span>metrics[<span class="st">&quot;hierarch_single_euclidean_d2dtaMEId2dtaMHI&quot;</span>, ]</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#&gt;                                            Purity Fmeasure     RI        Time</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt; hierarch_single_euclidean_d2dtaMEId2dtaMHI   0.52   0.6535 0.4958 0.001051903</span></span></code></pre></div>
+<p>But now imagine that we executed <code>EHyClus</code> without giving
+the <code>true_labels</code> parameter but we want to compute the
+metrics. For that purpose, we can use the
+<code>clustering_validation</code> function, using the true labels as
+the first parameter and the ones generated by the clustering method as
+the second one:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">clustering_validation</span>(true_labels, res<span class="sc">$</span>cluster<span class="sc">$</span>hierarch<span class="sc">$</span>hierarch_single_euclidean_d2dtaMEId2dtaMHI<span class="sc">$</span>cluster)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="co">#&gt;   Purity Fmeasure       RI </span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="co">#&gt;   0.5200   0.6535   0.4958</span></span></code></pre></div>
+<p>Note that we are only taking a look at some of the result. Let’s see
+if some of them have given us better metrics. Results are sorted based
+on the RI:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">head</span>(res_with_labels<span class="sc">$</span>metrics, <span class="dv">5</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="co">#&gt;                                             Purity Fmeasure     RI         Time</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co">#&gt; kmeans_euclidean_d2dtaMEId2dtaMHI             1.00   1.0000 1.0000 0.0084872246</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co">#&gt; kmeans_mahalanobis_d2dtaMEId2dtaMHI           1.00   1.0000 1.0000 0.0089440346</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="co">#&gt; hierarch_ward.D2_euclidean_d2dtaMEId2dtaMHI   0.93   0.8678 0.8685 0.0009729862</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="co">#&gt; hierarch_ward.D2_manhattan_d2dtaMEId2dtaMHI   0.93   0.8685 0.8685 0.0010530949</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="co">#&gt; kkmeans_rbfdot_d2dtaMEId2dtaMHI               0.77   0.6684 0.6422 0.1124079227</span></span></code></pre></div>
+<p>Indeed, we can see that some methods have given us excellent results,
+performing an almost perfect clustering.</p>
+<p>In addition, if we only want to obtain the results for the best
+clustering method, we can use the <code>only_best</code> parameter. Note
+that this parameter only works when <code>true_labels</code> is
+provided.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>res_only_best <span class="ot">&lt;-</span> <span class="fu">EHyClus</span>(curves,</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>  <span class="at">vars_combinations =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;d2dtaMEI&quot;</span>, <span class="st">&quot;d2dtaMHI&quot;</span>)),</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>  <span class="at">true_labels =</span> true_labels,</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>  <span class="at">only_best =</span> <span class="cn">TRUE</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>)</span></code></pre></div>
+<p>If we inspect the object, we see that in fact it only contains the
+results of the clustering method that has obtained the best results.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>res_only_best<span class="sc">$</span>cluster</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="co">#&gt; $kmeans_euclidean_d2dtaMEId2dtaMHI</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="co">#&gt; $kmeans_euclidean_d2dtaMEId2dtaMHI$cluster</span></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="co">#&gt;   [1] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="co">#&gt;  [61] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="co">#&gt; $kmeans_euclidean_d2dtaMEId2dtaMHI$valid</span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="co">#&gt;   Purity Fmeasure       RI </span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="co">#&gt;        1        1        1 </span></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a><span class="co">#&gt; $kmeans_euclidean_d2dtaMEId2dtaMHI$time</span></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a><span class="co">#&gt; [1] 0.011976</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>res_only_best<span class="sc">$</span>metrics</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="co">#&gt;                                   Purity Fmeasure RI     Time</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="co">#&gt; kmeans_euclidean_d2dtaMEId2dtaMHI      1        1  1 0.011976</span></span></code></pre></div>
+<p>This can be useful if you want to use the function as if it were a
+typical clustering method.</p>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
