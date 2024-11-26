@@ -411,9 +411,9 @@ found in the following papers:</p>
 fast epigraph and hypograph-based approach for clustering functional
 data.” <em>Statistics and Computing</em>, <strong>33</strong>, 36. doi:
 <a href="https://doi.org/10.1007/s11222-023-10213-7">10.1007/s11222-023-10213-7</a></p></li>
-<li><p>Belén Pulido, Alba M. Franco-Pereira, Rosa E. Lillo (2023). “The
-epigraph and the hypograph indices as useful tools for clustering
-multivariate functional data.” doi: <a href="https://doi.org/10.48550/arXiv.2307.16720">10.48550/arXiv.2307.16720</a></p></li>
+<li><p>Belén Pulido, Alba M. Franco-Pereira, Rosa E. Lillo (2024).
+“Clustering multivariate functional data using the epigraph and
+hypograph indices: a case study on Madrid air quality.” doi: <a href="https://doi.org/10.48550/arXiv.2307.16720">10.48550/arXiv.2307.16720</a></p></li>
 </ul>
 </div>
 <div id="dgps-introduced-in-the-package" class="section level1">
@@ -711,8 +711,8 @@ data generated with <code>sim_model_ex2</code>:</p>
 <p>We can check that all the indices are computed for each curve and for
 its first and second derivative:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">names</span>(indices_mult)</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;dtaEI&quot;    &quot;ddtaEI&quot;   &quot;d2dtaEI&quot;  &quot;dtaHI&quot;    &quot;ddtaHI&quot;   &quot;d2dtaHI&quot;  &quot;dtaMEI&quot;   &quot;ddtaMEI&quot;  &quot;d2dtaMEI&quot; &quot;dtaMHI&quot;   &quot;ddtaMHI&quot; </span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt; [12] &quot;d2dtaMHI&quot;</span></span></code></pre></div>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;dtaEI&quot;    &quot;ddtaEI&quot;   &quot;d2dtaEI&quot;  &quot;dtaHI&quot;    &quot;ddtaHI&quot;   &quot;d2dtaHI&quot;  &quot;dtaMEI&quot;   &quot;ddtaMEI&quot;  &quot;d2dtaMEI&quot; &quot;dtaMHI&quot;  </span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt; [11] &quot;ddtaMHI&quot;  &quot;d2dtaMHI&quot;</span></span></code></pre></div>
 <p>We can also take a quick look to the generated indices:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">head</span>(indices_mult, <span class="dv">3</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co">#&gt;   dtaEI ddtaEI d2dtaEI dtaHI ddtaHI d2dtaHI dtaMEI   ddtaMEI  d2dtaMEI    dtaMHI   ddtaMHI  d2dtaMHI</span></span>

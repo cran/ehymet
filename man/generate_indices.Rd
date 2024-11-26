@@ -8,9 +8,9 @@ dimensions}
 generate_indices(
   curves,
   k,
-  grid,
   bs = "cr",
   indices = c("EI", "HI", "MEI", "MHI"),
+  n_cores = 1,
   ...
 )
 }
@@ -24,16 +24,16 @@ the curve, and in the second case, \eqn{q} is the number of dimensions.}
 \item{k}{Number of basis functions for the B-splines. If equals to 0, the number
 of basis functions will be automatically selected.}
 
-\item{grid}{Atomic vector of type numeric with two elements: the lower limit and the upper
-limit of the evaluation grid. If not provided, it will be selected automatically.}
-
 \item{bs}{A two letter character string indicating the (penalized) smoothing
-basis to use. See \code{\link{smooth.terms}}.}
+basis to use. See \code{\link[mgcv]{smooth.terms}}.}
 
 \item{indices}{Set of indices to be applied to the dataset. They should be
 any between EI, HI, MEI and MHI.}
 
-\item{...}{Additional arguments (unused)}
+\item{n_cores}{Number of cores to do parallel computation. 1 by default,
+which mean no parallel execution. Must be an integer number greater than 1.}
+
+\item{...}{Additional arguments for tfb. See \code{\link[tf]{tfb}}.}
 }
 \value{
 A dataframe containing the indices provided in \code{indices} for
@@ -44,12 +44,24 @@ Create a dataset with indices from a functional dataset in one or multiple
 dimensions
 }
 \examples{
+# 3-dimensional array
 x1 <- array(c(1, 2, 3, 3, 2, 1, 5, 2, 3, 9, 8, 7, -1, -5, -6, 2, 3, 0, -1, 0, 2, -1, -2, 0),
   dim = c(3, 4, 2)
 )
 generate_indices(x1, k = 4)
 
+# matrix
 x2 <- matrix(c(1, 2, 3, 3, 2, 1, 5, 2, 3, 9, 8, 7), nrow = 3, ncol = 4)
 generate_indices(x2, k = 4)
+
+# using additional parameter for tf::tfb
+curves <- sim_model_ex1(n = 10)
+generate_indices(
+  curves = curves,
+  k = 20,
+  bs = "bs",
+  m = c(3,2),        # additional parameter for tfb
+  penalized = FALSE  # additional parameter for tfb
+)
 
 }

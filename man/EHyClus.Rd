@@ -15,11 +15,11 @@ EHyClus(
   l_dist_hierarch = c("euclidean", "manhattan"),
   l_dist_kmeans = c("euclidean", "mahalanobis"),
   l_kernel = c("rbfdot", "polydot"),
-  grid,
   true_labels = NULL,
   only_best = FALSE,
   verbose = FALSE,
-  n_cores = 1
+  n_cores = 1,
+  ...
 )
 }
 \arguments{
@@ -33,6 +33,7 @@ atomic \code{vector} of strings with the
 names of the variables. Combinations with non-valid variable names will be discarded.
 If the list is non-named, the names of the variables are set to
 vars1, ..., varsk, where k is the number of elements in \code{vars_combinations}.
+If "auto" is provided, an unique combination of variable will be found.
 If not provided, generic combinations of variables will be used. They will not be
 the same for uni-dimensional and multi-dimensional problems.}
 
@@ -42,7 +43,7 @@ of basis functions will be automatically selected.}
 \item{n_clusters}{Number of clusters to generate.}
 
 \item{bs}{A two letter character string indicating the (penalized) smoothing
-basis to use. See \code{\link{smooth.terms}}.}
+basis to use. See \code{\link[mgcv]{smooth.terms}}.}
 
 \item{clustering_methods}{character vector specifying at least one of the following
 clustering methods to be computed: "hierarch", "kmeans", "kkmeans" or "spc".}
@@ -56,9 +57,6 @@ clustering.}
 
 \item{l_kernel}{\code{list} of kernels for kkmeans or spc.}
 
-\item{grid}{Atomic vector of type numeric with two elements: the lower limit and the upper
-limit of the evaluation grid. If not provided, it will be selected automatically.}
-
 \item{true_labels}{Numeric vector of true labels for validation. If provided,
 evaluation metrics are computed in the final result.}
 
@@ -71,6 +69,8 @@ some clustering methods. Defaults to \code{FALSE}.}
 
 \item{n_cores}{Number of cores to do parallel computation. 1 by default,
 which mean no parallel execution. Must be an integer number greater than 1.}
+
+\item{...}{Additional arguments for tfb. See \code{\link[tf]{tfb}}.}
 }
 \value{
 A \code{list} containing the clustering partition for each method and indices
